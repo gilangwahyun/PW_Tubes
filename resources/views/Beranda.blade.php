@@ -105,9 +105,9 @@
                         </a>
     
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileMenuLink">
-                            <li><a class="dropdown-item" href="#">Profile</a></li>
-                            <li><a class="dropdown-item" href="Form Pemesanan.html">Pesanan</a></li>
-                            <li><a class="dropdown-item" href="#">Logout</a></li>
+                        <li><a class="dropdown-item" href="{{ url('Profil') }}">Profile</a></li>
+                            <li><a class="dropdown-item" href="{{ url('Pesanan') }}">Pesanan</a></li>
+                            <li><a class="dropdown-item" href="{{ url('Beranda') }}">Logout</a></li>
                         </ul>
                     </div>
                 </div>
@@ -197,8 +197,12 @@
                                 <p class="card-text"><i class="fas fa-cogs text-warning"></i> Automatic</p>
                                 <p class="fw-bold">IDR 300.000</p>
                                 <button class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#carDetailModal"
-                                    onclick="showCarDetails('Avanza', '2020', '7 seats', 'Automatic', 'Gasoline', 'IDR 300.000', '{{ asset('images/car3.jpg') }}')">
+                                    onclick="showCarDetails('Avanza', 'AB 1234 CD', '2020', '7 seats', 'Automatic', 'Gasoline', 'IDR 300.000', '{{ asset('images/car4.jpg') }}')">
                                     Lihat Detail
+                                </button>
+                                <button class="btn btn-primary">
+                                    <a href="{{ url('FormPemesanan') }}" style="color: white; text-decoration: none;">Pesan
+                                        Sekarang</a>
                                 </button>
                             </div>
                         </div>
@@ -212,8 +216,12 @@
                                 <p class="card-text"><i class="fas fa-cogs text-warning"></i> Automatic</p>
                                 <p class="fw-bold">IDR 300.000</p>
                                 <button class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#carDetailModal"
-                                    onclick="showCarDetails('Brio', '2020', '5 seats', 'Automatic', 'Gasoline', 'IDR 300.000', '{{ asset('images/car5.jpeg') }}')">
+                                    onclick="showCarDetails('Brio', 'AB 1234 CD', '2020', '5 seats', 'Automatic', 'Gasoline', 'IDR 300.000', '{{ asset('images/car5.jpeg') }}')">
                                     Lihat Detail
+                                </button>
+                                <button class="btn btn-primary">
+                                    <a href="{{ url('FormPemesanan') }}" style="color: white; text-decoration: none;">Pesan
+                                        Sekarang</a>
                                 </button>
                             </div> 
                         </div>
@@ -227,8 +235,12 @@
                                 <p class="card-text"><i class="fas fa-cogs text-warning"></i> Automatic</p>
                                 <p class="fw-bold">IDR 300.000</p>
                                 <button class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#carDetailModal"
-                                    onclick="showCarDetails('Xenia', '2020', '7 seats', 'Automatic', 'Gasoline', 'IDR 300.000', '{{ asset('images/car6.jpg') }}')">
+                                    onclick="showCarDetails('Xenia', 'AB 1234 CD', '2020', '7 seats', 'Automatic', 'Gasoline', 'IDR 300.000', '{{ asset('images/car6.jpg') }}')">
                                     Lihat Detail
+                                </button>
+                                <button class="btn btn-primary">
+                                    <a href="{{ url('FormPemesanan') }}" style="color: white; text-decoration: none;">Pesan
+                                        Sekarang</a>
                                 </button>
                             </div>
                         </div>
@@ -263,14 +275,14 @@
                 </div>
             </div>
         </section>
-
-        <!-- Footer -->
-        <footer class="footer py-4">
-            <div class="container text-center">
-                <p>© 2024 Rental Jaya. All Rights Reserved.</p>
-            </div>
-        </footer>
     </main>
+
+    <!-- Footer -->
+    <!-- <footer class="footer py-4">
+        <div class="container text-center">
+            <p>© 2024 Rental Jaya. All Rights Reserved.</p>
+        </div>
+    </footer> -->
 
     <div class="modal fade" id="carDetailModal" tabindex="-1" aria-labelledby="carDetailModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
@@ -287,15 +299,12 @@
                         </div>
                         <div class="col-md-6">
                             <h4 id="carName"></h4>
+                            <h5 id="carLicense"></h5>
                             <p id="carYear"></p>
                             <p id="carSeats"></p>
                             <p id="carTransmission"></p>
                             <p id="carFuel"></p>
                             <p class="fw-bold" id="carPrice"></p>
-                            <button class="btn btn-primary">
-                                <a href="{{ url('FormPemesanan') }}" style="color: white; text-decoration: none;">Pesan
-                                    Sekarang</a>
-                            </button>
                         </div>
                     </div>
                 </div>  
@@ -315,14 +324,17 @@
             }
         });
 
-        // Toggle authentication button visibility
         document.getElementById('auth-button').addEventListener('click', function() {
-            const dropdown = document.getElementById('profile-dropdown');
-            dropdown.classList.toggle('d-none');
+            // Sembunyikan tombol Masuk/Daftar
+            this.classList.add('d-none');
+
+            // Tampilkan ikon profil dengan dropdown
+            document.getElementById('profile-dropdown').classList.remove('d-none');
         });
 
-        function showCarDetails(name, year, seats, transmission, fuel, price, image) {
+        function showCarDetails(name, license, year, seats, transmission, fuel, price, image) {
             document.getElementById('carName').innerText = name;
+            document.getElementById('carLicense').innerText = license;
             document.getElementById('carYear').innerText = `Tahun: ${year}`;
             document.getElementById('carSeats').innerText = seats;
             document.getElementById('carTransmission').innerText = transmission;

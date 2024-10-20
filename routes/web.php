@@ -14,6 +14,7 @@ Route::get('/DaftarMobil', function () {
     $cars = [
         [
             'name' => 'Toyota Corolla',
+            'license' => 'AB 1234 CD',
             'year' => '2020',
             'seats' => '5 seats',
             'transmission' => 'Automatic',
@@ -23,6 +24,7 @@ Route::get('/DaftarMobil', function () {
         ],
         [
             'name' => 'Honda Civic',
+            'license' => 'AB 1234 CD',
             'year' => '2021',
             'seats' => '5 seats',
             'transmission' => 'Automatic',
@@ -32,6 +34,7 @@ Route::get('/DaftarMobil', function () {
         ],
         [
             'name' => 'Suzuki Swift',
+            'license' => 'AB 1234 CD',
             'year' => '2019',
             'seats' => '5 seats',
             'transmission' => 'Manual',
@@ -41,6 +44,7 @@ Route::get('/DaftarMobil', function () {
         ],
         [
             'name' => 'Nissan Altima',
+            'license' => 'AB 1234 CD',
             'year' => '2020',
             'seats' => '5 seats',
             'transmission' => 'Automatic',
@@ -59,4 +63,12 @@ Route::get('/TentangKami', function () {
 
 Route::get('/FormPemesanan', function () {
     return view('FormPemesanan');
+});
+
+Route::get('/Profil', function () {
+    return view('Profil');
+});
+
+Route::get('/Pesanan', function () {
+    return view('Pesanan');
 });

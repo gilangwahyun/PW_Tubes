@@ -167,11 +167,11 @@
     </div>
 
     <!-- Footer -->
-    <footer class="footer py-4">
+    <!-- <footer class="footer py-4">
         <div class="container text-center">
             <p>© 2024 Rental Jaya. All Rights Reserved.</p>
         </div>
-    </footer>
+    </footer> -->
     
     <script>
         function hitungDurasi() {
