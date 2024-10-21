@@ -94,7 +94,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="{{ url('Beranda') }}">
                 <img src="{{ asset('images/logo.png') }}" alt="Rental Jaya Logo" height="40">
                 Rental Jaya
             </a>

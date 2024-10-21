@@ -125,8 +125,8 @@
                                     <input class="form-control" id="email" name="email" placeholder="Masukkan email" type="email" required />
                                 </div>
                                 <div>
-                                    <label class="form-label" for="nik">NIK</label>
-                                    <input class="form-control" id="nik" name="nik" placeholder="Masukkan NIK" type="text" required />
+                                    <label class="form-label" for="nik">No SIM</label>
+                                    <input class="form-control" id="nik" name="nik" placeholder="Masukkan No SIM" type="text" required />
                                 </div>
                             </div>
                         </div>

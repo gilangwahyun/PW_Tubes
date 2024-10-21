@@ -6,6 +6,14 @@ Route::get('/', function () {
     return view('Beranda');
 });
 
+Route::get('/Login', function () {
+    return view('Login');
+});
+
+Route::get('/Register', function () {
+    return view('Register');
+});
+
 Route::get('/Beranda', function () {
     return view('Beranda');
 });

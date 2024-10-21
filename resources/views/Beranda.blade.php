@@ -72,14 +72,15 @@
     </style>
 </head>
 <body>
-        <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-dark">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">
-                    <img src="{{ asset('images/logo.png') }}" alt="Rental Jaya Logo" height="40">
-                    Rental Jaya
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="{{ asset('images/logo.png') }}" alt="Rental Jaya Logo" height="40">
+                Rental Jaya
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -96,16 +97,16 @@
                 </ul>
                 <div class="d-flex ms-3">
                     <!-- Tombol Masuk/Daftar -->
-                    <button id="auth-button" class="btn btn-custom me-2">Masuk/Daftar</button>
+                    <a href="{{ url('Login') }}" class="btn btn-custom me-2">Masuk/Daftar</a>
     
-                    <!-- Dropdown profil (disembunyikan terlebih dahulu) -->
-                    <div id="profile-dropdown" class="dropdown d-none">
+                    <!-- Dropdown profil -->
+                    <div class="dropdown">
                         <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="profileMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="fas fa-user"></i> <!-- Ikon profil -->
                         </a>
     
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileMenuLink">
-                        <li><a class="dropdown-item" href="{{ url('Profil') }}">Profile</a></li>
+                            <li><a class="dropdown-item" href="{{ url('Profil') }}">Profile</a></li>
                             <li><a class="dropdown-item" href="{{ url('Pesanan') }}">Pesanan</a></li>
                             <li><a class="dropdown-item" href="{{ url('Beranda') }}">Logout</a></li>
                         </ul>
@@ -149,35 +150,25 @@
         <!-- Pelayanan Kami -->
         <section class="py-5">
             <div class="container">
-                <div class="row g-5">
-                    <div class="col-md-6 text-center">
-                        <img src="{{ asset('images/Group 24.png') }}" alt="Car Image" class="img-fluid rounded">
+                <h2 class="fw-bold mb-5 text-center">Pelayanan Kami</h2>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="card card-custom text-center p-4">
+                            <h5 class="card-title"><strong>Sewa Mobil</strong></h5>
+                            <p class="card-text">Menyediakan layanan rental mobil dengan berbagai pilihan mobil.</p>
+                        </div>
                     </div>
-                    <div class="col-md-6">
-                        <h2 class="fw-bold mb-4">Pelayanan Kami</h2>
-                        <ul class="list-unstyled">
-                            <li class="d-flex align-items-center mb-3">
-                                <div class="bg-warning rounded-circle me-3" style="width: 20px; height: 20px;"></div>
-                                <div class="service-item">  
-                                    <h4>Sewa Mobil</h4>
-                                    <p>Menyediakan layanan rental mobil dengan berbagai pilihan mobil.</p>
-                                </div>
-                            </li>
-                            <li class="d-flex align-items-center mb-3">
-                                <div class="bg-warning rounded-circle me-3" style="width: 20px; height: 20px;"></div>
-                                <div class="service-item">  
-                                    <h4>Penyewaan Jangka Panjang</h4>
-                                    <p>Menawarkan leasing kendaraan yang memerlukan mobil dalam jangka panjang.</p>
-                                </div>
-                            </li>
-                            <li class="d-flex align-items-center mb-3">
-                                <div class="bg-warning rounded-circle me-3" style="width: 20px; height: 20px;"></div>
-                                <div class="service-item">  
-                                    <h4>Apa lagi ya? biasa biasa</h4>
-                                    <p>blaaa blaaa</p>
-                                </div>
-                            </li>
-                        </ul>
+                    <div class="col-md-4">
+                        <div class="card card-custom text-center p-4">
+                            <h5 class="card-title"><strong>Penyewaan Jangka Panjang</strong></h5>
+                            <p class="card-text">Menawarkan leasing kendaraan yang memerlukan mobil dalam jangka panjang.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card card-custom text-center p-4">
+                            <h5 class="card-title"><strong>Apa Ya</strong></h5>
+                            <p class="card-text">Gatau lah.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -322,14 +313,6 @@
             } else {
                 navbar.classList.remove('scrolled');
             }
-        });
-
-        document.getElementById('auth-button').addEventListener('click', function() {
-            // Sembunyikan tombol Masuk/Daftar
-            this.classList.add('d-none');
-
-            // Tampilkan ikon profil dengan dropdown
-            document.getElementById('profile-dropdown').classList.remove('d-none');
         });
 
         function showCarDetails(name, license, year, seats, transmission, fuel, price, image) {

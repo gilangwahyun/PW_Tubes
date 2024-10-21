@@ -43,26 +43,12 @@
             bottom: 0;
             left: 0;
         }
-
-        .footer {
-            background-color: #000;
-        }
-
-        .footer a {
-            color: #ffc107;
-        }
-
-        .footer a:hover {
-            color: #e0a800;
-        }
-
         .profile-section {
             background-color: #343a40;
             padding: 20px;
             border-radius: 0.5rem;
             margin-bottom: 20px;
         }
-
         .profile-section h4 {
             color: #ffc107;
             margin-bottom: 15px;
@@ -73,7 +59,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="{{ url('Beranda') }}">
                 <img src="{{ asset('images/logo.png') }}" alt="Rental Jaya Logo" height="40">
                 Rental Jaya
             </a>
@@ -153,42 +139,60 @@
             </form>
         </div>
 
-        <!-- Riwayat Penyewaan -->
-        <!-- <div class="profile-section">
-            <h4>Riwayat Penyewaan</h4>
-            <ul class="list-group">
-                <li class="list-group-item bg-dark text-light">
-                    <strong>Toyota Avanza</strong> - AB 1234 CD - 2023-07-15 s/d 2023-07-20
-                </li>
-            </ul>
-        </div> -->
-
-        <!-- Keamanan -->
-        <!-- <div class="profile-section">
-            <h4>Keamanan</h4>
-            <form>
-                <div class="mb-3">
-                    <label for="kata-sandi" class="form-label">Kata Sandi</label>
-                    <input type="password" class="form-control" id="kata-sandi" value="********" readonly>
-                </div>
-            </form>
-        </div> -->
-
         <!-- Edit Profil Button -->
         <div class="text-center mb-3">
-            <a href="{{ url('Profil/Edit') }}" class="btn btn-warning">Edit Profil</a>
+            <a href="#" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editProfileModal">Edit Profil</a>
         </div>
     </div>
 
-    <!-- <footer class="footer py-4">
-        <div class="container text-center">
-            <p>© 2024 Rental Jaya. All Rights Reserved.</p>
+    <!-- Edit Profile Modal -->
+    <div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content" style="background-color: #343a40; color: #fff;">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editProfileModalLabel">Edit Profil</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editProfileForm">
+                        <div class="mb-3">
+                            <label for="edit-nama" class="form-label">Nama Lengkap</label>
+                            <input type="text" class="form-control" id="edit-nama" value="Pdiddy">
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="edit-tanggal-lahir" class="col-sm-4 col-form-label">Tanggal Lahir</label>
+                            <div class="col-sm-8">
+                                <input type="date" class="form-control" id="edit-tanggal-lahir" value="2003-09-03">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="edit-alamat" class="form-label">Alamat</label>
+                            <textarea class="form-control" id="edit-alamat" rows="2">Seturan Jogja</textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="edit-nomor-telepon" class="form-label">Nomor Telepon</label>
+                            <input type="text" class="form-control" id="edit-nomor-telepon" value="081234567890">
+                        </div>
+                        <div class="mb-3">
+                            <label for="edit-email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="edit-email" value="user@example.com">
+                        </div>
+                        <div class="mb-3">
+                            <label for="edit-kata-sandi" class="form-label">Kata Sandi</label>
+                            <input type="password" class="form-control" id="edit-kata-sandi" value="password123">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Simpan Perubahan</button>
+                </div>
+            </div>
         </div>
-    </footer> -->
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Change navbar background on scroll
         window.addEventListener('scroll', function () {
             const navbar = document.querySelector('.navbar');
             if (window.scrollY > 50) {
