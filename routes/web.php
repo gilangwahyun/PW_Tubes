@@ -72,3 +72,7 @@ Route::get('/Profil', function () {
 Route::get('/Pesanan', function () {
     return view('Pesanan');
 });
+
+Route::get('/Pembayaran', function () {
+    return view('Pembayaran');
+});

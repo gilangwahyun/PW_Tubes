@@ -66,7 +66,7 @@
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container">
+        <div class="container-fluid">
             <a class="navbar-brand" href="#">
                 <img src="{{ asset('images/logo.png') }}" alt="Rental Jaya Logo" height="40">
                 Rental Jaya
@@ -87,16 +87,14 @@
                     </li>
                 </ul>
                 <div class="d-flex ms-3">
-                    <!-- Dropdown profil, menggantikan tombol Masuk/Daftar -->
-                    <div class="dropdown">
+                    <div id="profile-dropdown" class="dropdown">
                         <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="profileMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="fas fa-user"></i> <!-- Ikon profil -->
+                            <i class="fas fa-user"></i>
                         </a>
-
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileMenuLink">
-                            <li><a class="dropdown-item" href="#">Profile</a></li>
-                            <li><a class="dropdown-item" href="Form Pemesanan.html">Pesanan</a></li>
-                            <li><a class="dropdown-item" href="Landing Page.html">Logout</a></li>
+                            <li><a class="dropdown-item" href="{{ url('Profil') }}">Profile</a></li>
+                            <li><a class="dropdown-item" href="{{ url('Pesanan') }}">Pesanan</a></li>
+                            <li><a class="dropdown-item" href="{{ url('Beranda') }}">Logout</a></li>
                         </ul>
                     </div>
                 </div>
@@ -160,7 +158,7 @@
                     </div>
                 </div>
                 <div class="mt-4">
-                    <button class="btn btn-warning text-black w-100 py-3 rounded" type="submit">Lanjut ke Pembayaran</button>
+                    <a href="{{ url('Pembayaran') }}" class="btn btn-warning text-black w-100 py-3 rounded">Lanjut ke Pembayaran</a>
                 </div>
             </form>
         </div>
