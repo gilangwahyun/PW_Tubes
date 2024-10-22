@@ -166,8 +166,8 @@
                     </div>
                     <div class="col-md-4">
                         <div class="card card-custom text-center p-4">
-                            <h5 class="card-title"><strong>Apa Ya</strong></h5>
-                            <p class="card-text">Gatau lah.</p>
+                            <h5 class="card-title"><strong>Asuransi Kendaraan</strong></h5>
+                            <p class="card-text">Memberikan perlindungan asuransi kendaraan selama masa sewa untuk keamanan pelanggan.</p>
                         </div>
                     </div>
                 </div>

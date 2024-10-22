@@ -107,7 +107,7 @@
                     </li>
                 </ul>
                 <div class="d-flex ms-3">
-                    <a href="{{ url('Admin') }}" class="btn btn-custom me-2">Admin</a>
+                    <a href="{{ url('Dashboard') }}" class="btn btn-custom me-2">Admin</a>
                 </div>
             </div>
         </div>
@@ -117,7 +117,7 @@
     <div class="login-container">
         <div class="login-form">
             <h3 class="text-center mb-4">Masuk ke Rental Jaya</h3>
-            <form action="">
+            <form action="{{ url('Beranda') }}">
                 @csrf
                 <div class="mb-3">
                     <label for="email" class="form-label">Email address</label>

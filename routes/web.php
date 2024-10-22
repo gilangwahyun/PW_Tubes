@@ -14,6 +14,22 @@ Route::get('/Register', function () {
     return view('Register');
 });
 
+Route::get('/Dashboard', function () {
+    return view('Dashboard');
+});
+
+Route::get('/BerandaAdmin', function () {
+    return view('BerandaAdmin');
+});
+
+Route::get('/User', function () {
+    return view('User');
+});
+
+Route::get('/Mobil', function () {
+    return view('Mobil');
+});
+
 Route::get('/Beranda', function () {
     return view('Beranda');
 });
