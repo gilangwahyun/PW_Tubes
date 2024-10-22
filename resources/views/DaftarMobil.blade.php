@@ -175,8 +175,16 @@
     </nav>
 
     <main class="container mt-5">
+        <form action="{{ url('DaftarMobil') }}" method="GET" class="mb-4">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Cari mobil..." name="search" aria-label="Search" value="">
+                <button class="btn btn-warning" type="submit">Cari</button>
+            </div>
+        </form>
+
         <div class="d-flex justify-content-center flex-wrap mb-4">
-            <button class="btn btn-warning me-2">MPV</button>
+            <button class="btn btn-warning me-2">Semua</button>
+            <button class="btn btn-secondary me-2">MPV</button>
             <button class="btn btn-secondary me-2">SUV</button>
             <button class="btn btn-secondary me-2">Sport</button>
             <button class="btn btn-secondary me-2">Hatchback</button>
@@ -195,9 +203,10 @@
                                 <p class="card-text"><i class="fas fa-users text-warning"></i> {{ $car['seats'] }}</p>
                                 <p class="card-text"><i class="fas fa-cogs text-warning"></i> {{ $car['transmission'] }}</p>
                                 <p class="fw-bold">{{ $car['price'] }}</p>
-                                <button class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#carDetailModal"
-                                    onclick="showCarDetails('{{ $car['name'] }}', '{{ $car['license'] }}', '{{ $car['year'] }}', '{{ $car['seats'] }}', '{{ $car['transmission'] }}', '{{ $car['fuel'] }}', '{{ $car['price'] }}', '{{ $car['image'] }}')">
-                                    Lihat Detail
+                                <button class="btn btn-custom">
+                                    <a href="{{ url('DetailMobil') }}" style="color: white; text-decoration: none;">
+                                        Lihat Detail
+                                    </a>
                                 </button>
                                 <button class="btn btn-primary">
                                     <a href="{{ url('FormPemesanan') }}" style="color: white; text-decoration: none;">Pesan
@@ -212,44 +221,9 @@
             </div>
         </div>
     </main>
-    <!-- Footer -->
-    <!-- <footer class="footer py-4">
-        <div class="container text-center">
-            <p>© 2024 Rental Jaya. All Rights Reserved.</p>
-        </div>
-    </footer> -->
-
-    <div class="modal fade" id="carDetailModal" tabindex="-1" aria-labelledby="carDetailModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content bg-dark text-light">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="carDetailModalLabel">Detail Mobil</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-                        aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <img id="carImage" src="" class="img-fluid" alt="...">
-                        </div>
-                        <div class="col-md-6">
-                            <h4 id="carName"></h4>
-                            <h5 id="carLicense"></h5>
-                            <p id="carYear"></p>
-                            <p id="carSeats"></p>
-                            <p id="carTransmission"></p>
-                            <p id="carFuel"></p>
-                            <p class="fw-bold" id="carPrice"></p>
-                        </div>
-                    </div>
-                </div>  
-            </div>
-        </div>
-    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Detect scroll event
         window.addEventListener('scroll', function () {
             const navbar = document.querySelector('.navbar');
             if (window.scrollY > 50) {
@@ -260,23 +234,10 @@
         });
 
         document.getElementById('auth-button').addEventListener('click', function() {
-            // Sembunyikan tombol Masuk/Daftar
             this.classList.add('d-none');
 
-            // Tampilkan ikon profil dengan dropdown
             document.getElementById('profile-dropdown').classList.remove('d-none');
         });
-
-        function showCarDetails(name, license, year, seats, transmission, fuel, price, image) {
-            document.getElementById('carName').innerText = name;
-            document.getElementById('carLicense').innerText = license;
-            document.getElementById('carYear').innerText = `Tahun: ${year}`;
-            document.getElementById('carSeats').innerText = seats;
-            document.getElementById('carTransmission').innerText = transmission;
-            document.getElementById('carFuel').innerText = fuel;
-            document.getElementById('carPrice').innerText = price;
-            document.getElementById('carImage').src = image;
-        }
     </script>
 </body>
 

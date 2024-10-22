@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -163,27 +164,20 @@
             </form>
         </div>
     </div>
-
-    <!-- Footer -->
-    <!-- <footer class="footer py-4">
-        <div class="container text-center">
-            <p>© 2024 Rental Jaya. All Rights Reserved.</p>
-        </div>
-    </footer> -->
     
     <script>
-        function hitungDurasi() {
-            const tanggalMulai = new Date(document.getElementById('tanggal-mulai').value);
-            const tanggalSelesai = new Date(document.getElementById('tanggal-selesai').value);
-    
-            // Validasi tanggal
-            if (tanggalMulai && tanggalSelesai && tanggalSelesai >= tanggalMulai) {
-                const waktuSewa = (tanggalSelesai - tanggalMulai) / (1000 * 3600 * 24); // Menghitung selisih dalam hari
-                document.getElementById('durasi-sewa').value = waktuSewa; // Mengisi field durasi sewa
-            } else {
-                document.getElementById('durasi-sewa').value = ''; // Reset durasi sewa jika tanggal tidak valid
-            }
+    function hitungDurasi() {
+        const tanggalMulai = new Date(document.getElementById('tanggal-mulai').value);
+        const tanggalSelesai = new Date(document.getElementById('tanggal-selesai').value);
+
+        // Validasi tanggal
+        if (tanggalMulai && tanggalSelesai && tanggalSelesai >= tanggalMulai) {
+            const waktuSewa = Math.ceil((tanggalSelesai - tanggalMulai) / (1000 * 3600 * 24)) + 1;
+            document.getElementById('durasi-sewa').value = waktuSewa;
+        } else {
+            document.getElementById('durasi-sewa').value = '';
         }
+    }
     </script>
 </body>
 </html>

@@ -28,7 +28,7 @@ Route::get('/DaftarMobil', function () {
             'transmission' => 'Automatic',
             'fuel' => 'Gasoline',
             'price' => 'IDR 300.000',
-            'image' => asset('images/car5.jpeg'),
+            'image' => asset('images/car7.jpg'),
         ],
         [
             'name' => 'Honda Civic',
@@ -65,6 +65,10 @@ Route::get('/DaftarMobil', function () {
     return view('DaftarMobil', compact('cars'));
 });
 
+Route::get('/DetailMobil', function () {
+    return view('DetailMobil');
+});
+
 Route::get('/TentangKami', function () {
     return view('TentangKami');
 });
@@ -78,7 +82,36 @@ Route::get('/Profil', function () {
 });
 
 Route::get('/Pesanan', function () {
-    return view('Pesanan');
+    $bookings = [
+        [
+            'name' => 'Toyota Corolla',
+            'license' => 'AB 1234 CD',
+            'year' => '2020',
+            'seats' => '5 seats',
+            'transmission' => 'Automatic',
+            'fuel' => 'Gasoline',
+            'price' => 'IDR 300.000',
+            'image' => asset('images/car7.jpg'),
+            'status' => 'Selesai',
+            'rent_date' => '2024-07-15',
+            'return_date' => '2024-07-20',
+        ],
+        [
+            'name' => 'Honda Civic',
+            'license' => 'EF 5678 GH',
+            'year' => '2021',
+            'seats' => '5 seats',
+            'transmission' => 'Automatic',
+            'fuel' => 'Gasoline',
+            'price' => 'IDR 400.000',
+            'image' => asset('images/car8.jpg'),
+            'status' => 'Sedang Berlangsung',
+            'rent_date' => '2024-08-01',
+            'return_date' => '2024-08-05',
+        ],
+    ];
+
+    return view('Pesanan', compact('bookings'));
 });
 
 Route::get('/Pembayaran', function () {

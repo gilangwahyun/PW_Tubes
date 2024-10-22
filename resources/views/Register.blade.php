@@ -128,7 +128,7 @@
     <div class="register-container">
         <div class="register-form">
             <h3 class="text-center mb-4">Daftar ke Rental Jaya</h3>
-            <form action="" method="POST">
+            <form action="">
                 @csrf
                 <div class="mb-3">
                     <label for="name" class="form-label">Nama</label>
