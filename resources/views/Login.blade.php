@@ -107,7 +107,7 @@
                     </li>
                 </ul>
                 <div class="d-flex ms-3">
-                    <a href="{{ url('Dashboard') }}" class="btn btn-custom me-2">Admin</a>
+                    <a href="{{ url('BerandaAdmin') }}" class="btn btn-custom me-2">Admin</a>
                 </div>
             </div>
         </div>
